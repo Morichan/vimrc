@@ -450,6 +450,9 @@ set nowritebackup
 " バックアップをしない
 set nobackup
 
+" スワップファイルを作成しない
+set noswapfile
+
 " バックスペースで各種消せるようにする
 set backspace=indent,eol,start
 
