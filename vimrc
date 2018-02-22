@@ -1,3 +1,4 @@
+""
 " Character Code change
 " :e ++enc=utf-8
 " :set fileencoding=euc-jp
@@ -8,6 +9,7 @@
 "   次に変えたい文字コードにセット
 "   そして上書きすれば完璧
 
+""
 " File Format change
 " :set ff=dos
 "  (dos, mac, unix)
@@ -16,6 +18,23 @@
 "   macでMac、unixでUNIXの形式に改行を変更する
 "   要するにファイルフォーマット変更は改行の変更ってことかな
 
+""
+" Newline character change
+" .vimrcの改行コードがUNIXとなっていない、例えばwindowsで作成した.vimrcを転送
+" した場合、vim起動時にエラーとなることがある
+"   $HOME$/.vimrcの処理中にエラーが検出されました:
+"   行1:
+"   E474: 無効な引数です: encoding=utf-8^M
+"   行    3:
+"   E474: 無効な引数です: fileformats=unix,dox,mac^M
+"   続けるにはENTERを押すかコマンドを入力してください
+" これを防ぐにはvimで.vimrcを開いて以下のコマンドで改行ゴードを変換する
+" :setl ff=unix
+" :wq
+" または、-dオプションを用いて.vimrcファイルを開き、次のコマンドを実行する
+" :%s/^M//g
+" なお、^Mは<C-v><C-M>と入力する
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 知っておくべきコマンドやキーマッピングたち
 " <ESC><ESC> 文末のスペースキーを消す
@@ -23,7 +42,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" dein 導入方法
+" Dein 導入方法 (vim7.4以降で使える)
 " $ mkdir -p ~/.vim/dein/repos/github.com/Shougo/dein.vim
 " $ git clone https://github.com/Shougo/dein.vim.git \
 "     ~/.vim/dein/repos/github.com/Shougo/dein.vim
@@ -258,11 +277,23 @@ call dein#add('vim-perl/vim-perl')
 " solarizedを使う
 call dein#add('altercation/vim-colors-solarized')
 
+" molokaiを使う
+call dein#add('tomasr/molokai')
+
 call dein#add('gmarik/vundle')
 
 " Perlでお世話になる方々
 call dein#add('petdance/vim-perl')
 call dein#add('hotchpotch/perldoc-vim')
+
+" LaTeXを書きたいときはこれ
+call dein#add('lervag/vimtex')
+call dein#add('thinca/vim-quickrun')
+
+" MarkDownを書きたいときはこれ
+call dein#add('plasticboy/vim-markdown')
+call dein#add('kannokanno/previm')
+call dein#add('tyru/open-browser.vim')
 
 " snippetを使う（最新版）
 call dein#add('Shougo/neocomplcache')
@@ -449,6 +480,8 @@ set scrolloff=3
 set nowritebackup
 " バックアップをしない
 set nobackup
+" undoファイルを作らない（.ファイル名.un~ってやつ）
+set noundofile
 
 " スワップファイルを作成しない
 set noswapfile
@@ -530,6 +563,75 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-n>"
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
 
+
+
 "--------------------------------------------------"
-" ここまで
+" vimでLaTeXを書くときにやっておきたいこと
 "--------------------------------------------------"
+
+" autocmd
+"==============================
+augroup filetype
+    autocmd!
+    " tex file (I always use latex)
+    autocmd BufRead,BufNewFile *.tex setlocal filetype=tex
+augroup END
+
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.tex setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=999,999
+augroup END
+
+let g:latex_latexmk_continuous = 1
+let g:latex_latexmk_background = 1
+
+let g:vimtex_fold_env = 0
+let g:tex_conceal=''
+
+let g:quickrun_config = {}
+let g:quickrun_config['tex'] = {
+            \   'command' : 'latexmk',
+            \   'outputter' : 'error',
+            \   'outputter/error/error' : 'quickfix',
+            \   'cmdopt': '-pdfdvi',
+            \   'exec': ['%c %o %s']
+            \ }
+
+augroup myLaTeXQuickrun
+    au!
+    au BufEnter *.tex call <SID>SetLaTeXMainSource()
+    au BufEnter *.tex nnoremap <Leader>v :call <SID>TexPdfView() <CR>
+augroup END
+function! s:SetLaTeXMainSource()
+    let currentFileDirectory = expand('%:p:h').'\'
+    let latexmain = glob(currentFileDirectory.'*.latexmain')
+    let g:quickrun_config['tex']['srcfile'] = fnamemodify(latexmain, ':r')
+    if latexmain == ''
+        unlet g:quickrun_config['tex']['srcfile']
+    endif
+endfunction
+function! s:TexPdfView()
+    let texPdfFilename = expand('%')
+    if exists("g:quickrun_config['tex']['srcfile']")
+        let texPdfFilename = fnamemodify(g:quickrun_config['tex']['srcfile'], ':.:r') . '.pdf'
+    endif
+    if has('win32')
+        let g:TexPdfViewCommand = '!start '.
+                    \             texPdfFilename
+    endif
+    if has('unix')
+        let g:TexPdfViewCommand = ':! '.
+                    \             'evince'.
+                    \             texPdfFilename
+    endif
+    execute g:TexPdfViewCommand
+endfunction
+
+
+
+"--------------------------------------------------"
+" vimでMarkDownを書くときにやっておきたいこと
+"--------------------------------------------------"
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a chrome'
+
