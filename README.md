@@ -6,7 +6,7 @@
 
 # 導入方法
 
-```bash:command
+```sh
 $ dir
 vim80-kaoriya-win32 # vim.exeが存在するフォルダ
 
