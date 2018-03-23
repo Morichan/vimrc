@@ -286,6 +286,11 @@ call dein#add('gmarik/vundle')
 call dein#add('petdance/vim-perl')
 call dein#add('hotchpotch/perldoc-vim')
 
+" Rustでお世話になる方々
+call dein#add('racer-rust/vim-racer')
+call dein#add('rust-lang/rust.vim')
+call dein#add('scrooloose/syntastic')
+
 " LaTeXを書きたいときはこれ
 call dein#add('lervag/vimtex')
 call dein#add('thinca/vim-quickrun')
