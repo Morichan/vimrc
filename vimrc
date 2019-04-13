@@ -554,7 +554,7 @@ endif
 
 " 文字コード固定と自動判定
 set encoding=utf-8
-set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp
 
 " 行番号を左に表示
 set number
