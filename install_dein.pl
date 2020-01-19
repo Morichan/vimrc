@@ -18,4 +18,9 @@ mkpath $dir_name;
 print "> git clone https://github.com/Shougo/dein.vim.git $dir_name/dein.vim";
 system "git clone https://github.com/Shougo/dein.vim.git $dir_name/dein.vim";
 
+$dir_name = "$home_dir/.vim/undo";
+
+print "> mkdir $dir_name\n";
+mkpath $dir_name;
+
 exit;
