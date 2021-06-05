@@ -4,7 +4,7 @@ set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp
 
 " 行番号を左に表示
 set number
-set relativenumber
+" set relativenumber
 
 " tabキーの変更
 " set noexpandtab "タブ入力を複数の空白入力に置き換えない
@@ -13,6 +13,8 @@ set shiftwidth=4 "自動インデントでずれる幅
 set softtabstop=4 "連続した空白に対してtabやバックスペースでカーソルが動く幅
 set autoindent "改行時に前の行のインデントを継続する
 set smartindent "改行時に入力された行の末尾に合わせ次行のインデントを増減
+" tabキーをわかりやすく表示する
+set list listchars=tab:>-
 
 " スクロールする時に下が見えるようにする
 set scrolloff=3
@@ -105,9 +107,4 @@ if has('persistent_undo')
   exe 'set undodir=' . undo_path
   set undofile
 endif
-
-"--------------------------------------------------"
-" 業務でVimを利用する際にやっておきたいこと
-"--------------------------------------------------"
-set list listchars=tab:>-
 
