@@ -335,6 +335,8 @@ call dein#add('scrooloose/syntastic')
 
 " Pythonでお世話になる方々
 call dein#add('scrooloose/syntastic')
+call dein#add('yhat/vim-docstring')
+call dein#add('heavenshell/vim-pydocstring')
 
 " LaTeXを書きたいときはこれ
 call dein#add('lervag/vimtex')
@@ -622,11 +624,12 @@ elseif colorSchemeList == 5
   " gruvbox https://github.com/morhetz/gruvbox/wiki/Terminal-specific
   " From: https://wonderwall.hatenablog.com/entry/2019/02/25/224719
   autocmd ColorScheme * highlight vimCommentTitle ctermfg=white guifg=white
-  autocmd ColorScheme * highlight Comment ctermfg=lightcyan guifg=lightyellow
+  autocmd ColorScheme * highlight Comment ctermfg=229 ctermbg=237 guifg='#fbf1c7' guibg='#3c3836'
   autocmd ColorScheme * highlight Todo ctermfg=lightcyan guifg=lightcyan guibg=darkcyan
   autocmd ColorScheme * highlight podCommand ctermfg=white guibg='#eaf4fc' guifg='#203744'
   autocmd ColorScheme * highlight podCmdText ctermfg=white guifg='#e0ebaf'
   autocmd ColorScheme * highlight link perlPod GruvboxOrange
+  autocmd ColorScheme * highlight link pythonDocstring GruvboxGray
   autocmd ColorScheme * highlight LineNr ctermfg=darkgreen guifg='#afafb0' ctermbg=black guibg='#060606'
 
   let g:indent_guides_auto_colors = 0
@@ -827,7 +830,15 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" docstring
+autocmd BufNewFile,BufRead *.py syntax match pythonDocstring /"""\_.\{-}"""/ contains=pythonSpaceError,pythonDoctest,@Spell
+autocmd BufNewFile,BufRead *.py syntax match pythonDocstring /'''\_.\{-}'''/ contains=pythonSpaceError,pythonDoctest,@Spell
 
+" vim-docstring（docstringを折りたためる）
+autocmd FileType python PyDocHide
+
+" vim-pydocstring（docstringのテンプレを出力する）
+let g:pydocstring_templates_dir = '~/.vim/dein/repos/github.com/heavenshell/vim-pydocstring/test/templates/numpy/'
 
 "--------------------------------------------------"
 " vimでLaTeXを書くときにやっておきたいこと
@@ -904,6 +915,7 @@ let g:previm_open_cmd = 'open -a chrome'
 augroup fileTypeIndent
   autocmd!
   autocmd BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=999,999
+  autocmd BufNewFile,BufRead *.vim setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=999,999
 augroup END
 
 
