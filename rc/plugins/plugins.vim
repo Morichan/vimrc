@@ -83,9 +83,6 @@
 " Dein: next generation of NeoBundle
 " supported from more vim7.4
 "
-if &compatible
-  set nocompatible
-endif
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
 let s:dein_dir = expand('~/.vim/dein')
