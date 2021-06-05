@@ -11,6 +11,12 @@ repo = 'itchyny/lightline.vim'
 
 
 [[plugins]]
+# ウィンドウのリサイズ高速化
+# <C-e> にてリサイズモードに移行する
+repo = 'simeji/winresizer'
+
+
+[[plugins]]
 # コメントON/OFFを手軽に実行
 # <C--> を2回押す
 # Ubuntuの端末だと縮小化が先にされて反応してくれない
@@ -20,12 +26,6 @@ repo = 'tomtom/tcomment_vim'
 [[plugins]]
 # キーマッピングを変更する設定を記述できる
 repo = 'kana/vim-submode'
-
-
-[[plugins]]
-# 対括弧の移動強化
-repo = 'andymass/vim-matchup'
-
 
 
 [[plugins]]
@@ -59,16 +59,6 @@ repo = 'scrooloose/nerdtree'
 
 
 [[plugins]]
-# インテリジェントな補完機能
-repo = 'zxqfl/tabnine-vim'
-
-
-[[plugins]]
-# Perlで何かしてくれる？よくわからん
-repo = 'vim-perl/vim-perl'
-
-
-[[plugins]]
 repo = 'ConradIrwin/vim-bracketed-paste'
 
 
@@ -88,11 +78,6 @@ repo = 'phanviet/vim-monokai-pro'
 
 
 [[plugins]]
-# monokai-proを使う
-repo = 'phanviet/vim-monokai-pro'
-
-
-[[plugins]]
 # gruvboxを使う
 repo = 'morhetz/gruvbox'
 
@@ -103,7 +88,7 @@ repo = 'gmarik/vundle'
 
 [[plugins]]
 # Perlでお世話になる方々01
-repo = 'petdance/vim-perl'
+repo = 'vim-perl/vim-perl'
 
 
 [[plugins]]

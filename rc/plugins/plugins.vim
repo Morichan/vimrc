@@ -93,8 +93,10 @@ if dein#load_state(s:dein_dir)
 
   " Load TOML
   let s:dein_toml = s:dein_toml_dir . '/dein.toml'
+  let s:dein_lazy_toml = s:dein_toml_dir . '/dein_lazy.toml'
 
   call dein#load_toml(s:dein_toml)
+  call dein#load_toml(s:dein_lazy_toml, {'lazy': 1})
 
   call dein#end()
   call dein#save_state()

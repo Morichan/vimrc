@@ -1,0 +1,4 @@
+[[plugins]]
+# インテリジェントな補完機能
+repo = 'codota/tabnine-vim'
+
