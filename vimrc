@@ -631,7 +631,7 @@ elseif colorSchemeList == 5
     let g:indent_guides_auto_colors = 0
     autocmd VimEnter,ColorScheme * highlight NonText ctermfg=lightgray guifg=lightgray
     autocmd VimEnter,ColorScheme * highlight SpecialKey ctermfg=lightgray guifg=lightgray
-    autocmd VimEnter,Colorscheme * highlight IndentGuidesOdd ctermfg=lightgray guifg=lightgray guibg='#383c3c' ctermbg=darkgray
+    autocmd VimEnter,Colorscheme * highlight IndentGuidesOdd ctermfg=lightgray guifg=lightgray guibg='#485859' ctermbg=darkgray
     autocmd VimEnter,Colorscheme * highlight IndentGuidesEven ctermfg=lightgray guifg=lightgray guibg='#16160e' ctermbg=darkgray
 
     let g:gruvbox_italic=1
