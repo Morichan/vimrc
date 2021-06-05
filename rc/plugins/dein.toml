@@ -1,0 +1,187 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+
+[[plugins]]
+# コメントON/OFFを手軽に実行
+# <C--> を2回押す
+# Ubuntuの端末だと縮小化が先にされて反応してくれない
+repo = 'tomtom/tcomment_vim'
+
+
+[[plugins]]
+# キーマッピングを変更する設定を記述できる
+repo = 'kana/vim-submode'
+
+
+[[plugins]]
+# 対括弧の移動強化
+repo = 'andymass/vim-matchup'
+
+
+
+[[plugins]]
+# 対括弧の移動強化
+repo = 'andymass/vim-matchup'
+
+
+[[plugins]]
+# インデントに色を付けて見やすくする
+repo = 'nathanaelkane/vim-indent-guides'
+
+
+[[plugins]]
+# 行末の半角スペースを可視化
+repo = 'bronson/vim-trailing-whitespace'
+
+
+[[plugins]]
+# 括弧の可読性向上
+repo = 'luochen1990/rainbow'
+
+
+[[plugins]]
+# 強制的にクリップボードからコピーできるようにする
+repo = 'kana/vim-fakeclip'
+
+
+[[plugins]]
+# ファイルをtree表示してくれる
+repo = 'scrooloose/nerdtree'
+
+
+[[plugins]]
+# インテリジェントな補完機能
+repo = 'zxqfl/tabnine-vim'
+
+
+[[plugins]]
+# Perlで何かしてくれる？よくわからん
+repo = 'vim-perl/vim-perl'
+
+
+[[plugins]]
+repo = 'ConradIrwin/vim-bracketed-paste'
+
+
+[[plugins]]
+# solarizedを使う
+repo = 'altercation/vim-colors-solarized'
+
+
+[[plugins]]
+# molokaiを使う
+repo = 'tomasr/molokai'
+
+
+[[plugins]]
+# monokai-proを使う
+repo = 'phanviet/vim-monokai-pro'
+
+
+[[plugins]]
+# monokai-proを使う
+repo = 'phanviet/vim-monokai-pro'
+
+
+[[plugins]]
+# gruvboxを使う
+repo = 'morhetz/gruvbox'
+
+
+[[plugins]]
+repo = 'gmarik/vundle'
+
+
+[[plugins]]
+# Perlでお世話になる方々01
+repo = 'petdance/vim-perl'
+
+
+[[plugins]]
+# Perlでお世話になる方々02
+repo = 'hotchpotch/perldoc-vim'
+
+
+[[plugins]]
+# Rustでお世話になる方々01
+repo = 'racer-rust/vim-racer'
+
+
+[[plugins]]
+# Rustでお世話になる方々02
+repo = 'rust-lang/rust.vim'
+
+
+[[plugins]]
+# Pythonでお世話になる方々01
+repo = 'scrooloose/syntastic'
+
+
+[[plugins]]
+# Pythonでお世話になる方々02
+repo = 'yhat/vim-docstring'
+
+
+[[plugins]]
+# Pythonでお世話になる方々03
+repo = 'heavenshell/vim-pydocstring'
+
+
+[[plugins]]
+# LaTeXでお世話になる方々01
+repo = 'lervag/vimtex'
+
+
+[[plugins]]
+# LaTeXでお世話になる方々02
+repo = 'thinca/vim-quickrun'
+
+
+[[plugins]]
+# MarkDownでお世話になる方々01
+repo = 'plasticboy/vim-markdown'
+
+
+[[plugins]]
+# MarkDownでお世話になる方々02
+repo = 'kannokanno/previm'
+
+
+[[plugins]]
+# MarkDownでお世話になる方々03
+repo = 'tyru/open-browser.vim'
+
+
+[[plugins]]
+# snippetを使う（最新版）01
+repo = 'Shougo/neocomplcache'
+
+
+[[plugins]]
+# snippetを使う（最新版）02
+repo = 'Shougo/neosnippet'
+
+
+[[plugins]]
+# snippetを使う（最新版）03
+repo = 'Shougo/neosnippet-snippets'
+
+
+# [[plugins]]
+# # snippetを使う01
+# repo = 'SirVer/ultisnips'
+# 
+# 
+# [[plugins]]
+# # snippetを使う02
+# repo = 'honza/vim-snippets'
+

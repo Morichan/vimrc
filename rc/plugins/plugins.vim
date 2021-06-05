@@ -83,114 +83,34 @@
 " Dein: next generation of NeoBundle
 " supported from more vim7.4
 "
-
-"--------------------------------
-" Start Dein Settings.
-"--------------------------------
 if &compatible
   set nocompatible
 endif
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-call dein#begin(expand('~/.vim/dein'))
+let s:dein_dir = expand('~/.vim/dein')
+let s:dein_toml_dir = expand('rc/plugins')
 
-call dein#add('Shougo/dein.vim')
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-"
-" 読み込むプラグインを記載
-"
-call dein#add('Shougo/unite.vim')
-call dein#add('itchyny/lightline.vim')
+  " Load TOML
+  let s:dein_toml = s:dein_toml_dir . '/dein.toml'
 
-" コメントON/OFFを手軽に実行
-" <C--> を2回押す
-" Ubuntuの端末だと縮小化が先にされて反応してくれない
-call dein#add('tomtom/tcomment_vim')
+  call dein#load_toml(s:dein_toml)
 
-" キーマッピングを変更する設定を記述できる
-call dein#add('kana/vim-submode')
+  call dein#end()
+  call dein#save_state()
 
-" 対括弧の移動強化
-call dein#add('andymass/vim-matchup')
+  " 読み込んだプラグインも含め、
+  " ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化
+  filetype plugin indent on
+  filetype indent on
+  " syntax on
 
-" インデントに色を付けて見やすくする
-call dein#add('nathanaelkane/vim-indent-guides')
-" 行末の半角スペースを可視化
-call dein#add('bronson/vim-trailing-whitespace')
-" 括弧の可読性向上
-call dein#add('luochen1990/rainbow')
-
-" 強制的にクリップボードからコピーできるようにする
-call dein#add('kana/vim-fakeclip')
-
-" ファイルをtree表示してくれる
-call dein#add('scrooloose/nerdtree')
-
-" インテリジェントな補完機能
-call dein#add('zxqfl/tabnine-vim')
-
-" Perlで何かしてくれる？よくわからん
-call dein#add('vim-perl/vim-perl')
-
-call dein#add('ConradIrwin/vim-bracketed-paste')
-
-" solarizedを使う
-call dein#add('altercation/vim-colors-solarized')
-
-" molokaiを使う
-call dein#add('tomasr/molokai')
-
-" monokai-proを使う
-call dein#add('phanviet/vim-monokai-pro')
-
-" gruvboxを使う
-call dein#add('morhetz/gruvbox')
-
-call dein#add('gmarik/vundle')
-
-" Perlでお世話になる方々
-call dein#add('petdance/vim-perl')
-call dein#add('hotchpotch/perldoc-vim')
-
-" Rustでお世話になる方々
-call dein#add('racer-rust/vim-racer')
-call dein#add('rust-lang/rust.vim')
-call dein#add('scrooloose/syntastic')
-
-" Pythonでお世話になる方々
-call dein#add('scrooloose/syntastic')
-call dein#add('yhat/vim-docstring')
-call dein#add('heavenshell/vim-pydocstring')
-
-" LaTeXを書きたいときはこれ
-call dein#add('lervag/vimtex')
-call dein#add('thinca/vim-quickrun')
-
-" MarkDownを書きたいときはこれ
-call dein#add('plasticboy/vim-markdown')
-call dein#add('kannokanno/previm')
-call dein#add('tyru/open-browser.vim')
-
-" snippetを使う（最新版）
-call dein#add('Shougo/neocomplcache')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neosnippet-snippets')
-" call dein#add('SirVer/ultisnips')
-" call dein#add('honza/vim-snippets')
-
-call dein#end()
-
-" 読み込んだプラグインも含め、
-" ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化
-filetype plugin indent on
-filetype indent on
-" syntax on
-
-" インストールのチェック
-if dein#check_install()
-  call dein#install()
+  " インストールのチェック
+  if dein#check_install()
+    call dein#install()
+  endif
 endif
-"-----------------------------
-" End Dein Settings.
-"-----------------------------
 
