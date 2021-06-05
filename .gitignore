@@ -5,6 +5,6 @@
 !install.*
 !install_dein.pl
 !show256colors.pl
-settings/init/config.vim
-!settings/
+rc/init/config.vim
+!rc/
 

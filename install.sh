@@ -3,6 +3,6 @@
 cat << EOF >> ~/.vimrc
 
 " This is custom settings, for more details $(pwd)/README.md
-set runtimepath+=$(pwd)/settings
+set runtimepath+=$(pwd)/rc
 runtime! init.vim
 EOF
