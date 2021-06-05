@@ -111,31 +111,31 @@ scriptencoding utf-8
 let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
 
 if has('syntax')
-    augroup InsertHook
-        autocmd!
-        autocmd InsertEnter * call s:StatusLine('Enter')
-        autocmd InsertLeave * call s:StatusLine('Leave')
-    augroup END
+  augroup InsertHook
+    autocmd!
+    autocmd InsertEnter * call s:StatusLine('Enter')
+    autocmd InsertLeave * call s:StatusLine('Leave')
+  augroup END
 endif
 
 let s:slhlcmd = ''
 function! s:StatusLine(mode)
-    if a:mode == 'Enter'
-        silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-        silent exec g:hi_insert
-    else
-        highlight clear StatusLine
-        silent exec s:slhlcmd
-    endif
+  if a:mode == 'Enter'
+    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+    silent exec g:hi_insert
+  else
+    highlight clear StatusLine
+    silent exec s:slhlcmd
+  endif
 endfunction
 
 function! s:GetHighlight(hi)
-    redir => hl
-    exec 'highlight '.a:hi
-    redir END
-    let hl = substitute(hl, '[\r\n]', '', 'g')
-    let hl = substitute(hl, 'xxx', '', '')
-    return hl
+  redir => hl
+  exec 'highlight '.a:hi
+  redir END
+  let hl = substitute(hl, '[\r\n]', '', 'g')
+  let hl = substitute(hl, 'xxx', '', '')
+  return hl
 endfunction
 """"""""""""""""""""""""""""""
 
@@ -362,7 +362,7 @@ filetype indent on
 
 " インストールのチェック
 if dein#check_install()
-    call dein#install()
+  call dein#install()
 endif
 "-----------------------------
 " End Dein Settings.
@@ -543,104 +543,104 @@ set termguicolors
 " Tips:ctermの色の種類は16色、guiの色はRGB法
 
 if colorSchemeList == 0
-    """"""""""""""""""""""""""""""""""""""""""""""""""
-    " カラースキーマ変更
-    """"""""""""""""""""""""""""""""""""""""""""""""""
-    autocmd ColorScheme * highlight vimGroup ctermfg=4 ctermbg=15
-    autocmd ColorScheme * highlight Comment ctermfg=0
-    autocmd ColorScheme * highlight Visual ctermfg=0 ctermbg=14
-    autocmd ColorScheme * highlight Search ctermfg=0 ctermbg=4
-    autocmd ColorScheme * highlight IncSearch ctermfg=0
-    autocmd ColorScheme * highlight perlString ctermfg=0
+  """"""""""""""""""""""""""""""""""""""""""""""""""
+  " カラースキーマ変更
+  """"""""""""""""""""""""""""""""""""""""""""""""""
+  autocmd ColorScheme * highlight vimGroup ctermfg=4 ctermbg=15
+  autocmd ColorScheme * highlight Comment ctermfg=0
+  autocmd ColorScheme * highlight Visual ctermfg=0 ctermbg=14
+  autocmd ColorScheme * highlight Search ctermfg=0 ctermbg=4
+  autocmd ColorScheme * highlight IncSearch ctermfg=0
+  autocmd ColorScheme * highlight perlString ctermfg=0
 
-    set background=light
-    try
-        colorscheme solarized
-    catch
-    endtry
+  set background=light
+  try
+    colorscheme solarized
+  catch
+  endtry
 
 elseif colorSchemeList == 1
-    """"""""""""""""""""""""""""""""""""""""""""""""""
-    " カラースキーマ変更
-    """"""""""""""""""""""""""""""""""""""""""""""""""
-    " 背景をコンソールの背景と同一色にし、異なる通常背景とも統一
-    " autocmd ColorScheme * highlight Normal ctermbg=none
-    " autocmd ColorScheme * highlight vimGroup ctermfg=4 ctermbg=0
-    " autocmd ColorScheme * highlight perlHereDoc ctermbg=none
-    " autocmd ColorScheme * highlight perlVarPlain ctermbg=none
-    " autocmd ColorScheme * highlight perlStatementFileDesc ctermbg=none
-    " autocmd ColorScheme * highlight texStatement ctermbg=none
-    " autocmd ColorScheme * highlight texMathZoneX ctermbg=none
-    " autocmd ColorScheme * highlight texMathMatcher ctermbg=none
-    " autocmd ColorScheme * highlight texRefLabel ctermbg=none
-    " autocmd ColorScheme * highlight rubyDefine ctermbg=none
-    " autocmd ColorScheme * highlight Comment ctermfg=7 ctermbg=14 guibg=Gray
-    " autocmd ColorScheme * highlight ColorColumn ctermfg=0 ctermbg=4
-    " 選択時を変更
-    " autocmd ColorScheme * highlight Visual ctermfg=0 ctermbg=14
-    " autocmd ColorScheme * highlight Search ctermfg=0 ctermbg=4
-    " autocmd ColorScheme * highlight IncSearch ctermfg=0 ctermbg=4
-    " Perlの文をちょっと変える
-    " autocmd ColorScheme * highlight perlString ctermfg=1
-    " " autocmd ColorScheme * highlight perlComment ctermfg=0
-    " " vimrcの文もちょっと変える
-    " " autocmd ColorScheme * highlight vimIsCommand ctermfg=0
+  """"""""""""""""""""""""""""""""""""""""""""""""""
+  " カラースキーマ変更
+  """"""""""""""""""""""""""""""""""""""""""""""""""
+  " 背景をコンソールの背景と同一色にし、異なる通常背景とも統一
+  " autocmd ColorScheme * highlight Normal ctermbg=none
+  " autocmd ColorScheme * highlight vimGroup ctermfg=4 ctermbg=0
+  " autocmd ColorScheme * highlight perlHereDoc ctermbg=none
+  " autocmd ColorScheme * highlight perlVarPlain ctermbg=none
+  " autocmd ColorScheme * highlight perlStatementFileDesc ctermbg=none
+  " autocmd ColorScheme * highlight texStatement ctermbg=none
+  " autocmd ColorScheme * highlight texMathZoneX ctermbg=none
+  " autocmd ColorScheme * highlight texMathMatcher ctermbg=none
+  " autocmd ColorScheme * highlight texRefLabel ctermbg=none
+  " autocmd ColorScheme * highlight rubyDefine ctermbg=none
+  " autocmd ColorScheme * highlight Comment ctermfg=7 ctermbg=14 guibg=Gray
+  " autocmd ColorScheme * highlight ColorColumn ctermfg=0 ctermbg=4
+  " 選択時を変更
+  " autocmd ColorScheme * highlight Visual ctermfg=0 ctermbg=14
+  " autocmd ColorScheme * highlight Search ctermfg=0 ctermbg=4
+  " autocmd ColorScheme * highlight IncSearch ctermfg=0 ctermbg=4
+  " Perlの文をちょっと変える
+  " autocmd ColorScheme * highlight perlString ctermfg=1
+  " " autocmd ColorScheme * highlight perlComment ctermfg=0
+  " " vimrcの文もちょっと変える
+  " " autocmd ColorScheme * highlight vimIsCommand ctermfg=0
 
-    let g:solarized_termtrans=1
-    set background=dark
-    try
-        colorscheme solarized
-        set termguicolors
-    catch
-    endtry
+  let g:solarized_termtrans=1
+  set background=dark
+  try
+    colorscheme solarized
+    set termguicolors
+  catch
+  endtry
 
 elseif colorSchemeList == 2
-    " 選択時を変更
-    autocmd ColorScheme * highlight Visual ctermfg=16 ctermbg=253
-    " colorscheme solarizeを使っているから、ここでは見なかったことに
-    colorscheme molokai
-    set t_Co=256
+  " 選択時を変更
+  autocmd ColorScheme * highlight Visual ctermfg=16 ctermbg=253
+  " colorscheme solarizeを使っているから、ここでは見なかったことに
+  colorscheme molokai
+  set t_Co=256
 
 elseif colorSchemeList == 3
-    let g:solarized_termtrans=1
-    set background=light
-    try
-        colorscheme solarized
-    catch
-    endtry
+  let g:solarized_termtrans=1
+  set background=light
+  try
+    colorscheme solarized
+  catch
+  endtry
 
 elseif colorSchemeList == 4
-    let g:solarized_termtrans=1
-    set background=dark
-    try
-        colorscheme solarized
-    catch
-    endtry
+  let g:solarized_termtrans=1
+  set background=dark
+  try
+    colorscheme solarized
+  catch
+  endtry
 
 elseif colorSchemeList == 5
-    " gruvbox https://github.com/morhetz/gruvbox/wiki/Terminal-specific
-    " From: https://wonderwall.hatenablog.com/entry/2019/02/25/224719
-    autocmd ColorScheme * highlight vimCommentTitle ctermfg=white guifg=white
-    autocmd ColorScheme * highlight Comment ctermfg=lightcyan guifg=lightyellow
-    autocmd ColorScheme * highlight Todo ctermfg=lightcyan guifg=lightcyan guibg=darkcyan
-    autocmd ColorScheme * highlight podCommand ctermfg=white guibg='#eaf4fc' guifg='#203744'
-    autocmd ColorScheme * highlight podCmdText ctermfg=white guifg='#e0ebaf'
-    autocmd ColorScheme * highlight link perlPod GruvboxOrange
-    autocmd ColorScheme * highlight LineNr ctermfg=darkgreen guifg='#afafb0' ctermbg=black guibg='#060606'
+  " gruvbox https://github.com/morhetz/gruvbox/wiki/Terminal-specific
+  " From: https://wonderwall.hatenablog.com/entry/2019/02/25/224719
+  autocmd ColorScheme * highlight vimCommentTitle ctermfg=white guifg=white
+  autocmd ColorScheme * highlight Comment ctermfg=lightcyan guifg=lightyellow
+  autocmd ColorScheme * highlight Todo ctermfg=lightcyan guifg=lightcyan guibg=darkcyan
+  autocmd ColorScheme * highlight podCommand ctermfg=white guibg='#eaf4fc' guifg='#203744'
+  autocmd ColorScheme * highlight podCmdText ctermfg=white guifg='#e0ebaf'
+  autocmd ColorScheme * highlight link perlPod GruvboxOrange
+  autocmd ColorScheme * highlight LineNr ctermfg=darkgreen guifg='#afafb0' ctermbg=black guibg='#060606'
 
-    let g:indent_guides_auto_colors = 0
-    autocmd VimEnter,ColorScheme * highlight NonText ctermfg=lightgray guifg=lightgray
-    autocmd VimEnter,ColorScheme * highlight SpecialKey ctermfg=lightgray guifg=lightgray
-    autocmd VimEnter,Colorscheme * highlight IndentGuidesOdd ctermfg=lightgray guifg=lightgray guibg='#485859' ctermbg=darkgray
-    autocmd VimEnter,Colorscheme * highlight IndentGuidesEven ctermfg=lightgray guifg=lightgray guibg='#16160e' ctermbg=darkgray
+  let g:indent_guides_auto_colors = 0
+  autocmd VimEnter,ColorScheme * highlight NonText ctermfg=lightgray guifg=lightgray
+  autocmd VimEnter,ColorScheme * highlight SpecialKey ctermfg=lightgray guifg=lightgray
+  autocmd VimEnter,Colorscheme * highlight IndentGuidesOdd ctermfg=lightgray guifg=lightgray guibg='#485859' ctermbg=darkgray
+  autocmd VimEnter,Colorscheme * highlight IndentGuidesEven ctermfg=lightgray guifg=lightgray guibg='#16160e' ctermbg=darkgray
 
-    let g:gruvbox_italic=1
-    set bg=dark
-    colorscheme gruvbox
+  let g:gruvbox_italic=1
+  set bg=dark
+  colorscheme gruvbox
 
 elseif colorSchemeList == 6
-    set background=dark
-    colorscheme monokai_pro
+  set background=dark
+  colorscheme monokai_pro
 
 endif
 
@@ -741,7 +741,7 @@ set ttymouse=xterm2
 
 " □とか○の文字があってもカーソル位置がずれないようにする
 if exists('&ambiwidth')
-    set ambiwidth=double
+  set ambiwidth=double
 endif
 
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
@@ -765,9 +765,9 @@ augroup END  " }}}
 
 " undoディレクトリ内に変更履歴を保存する
 if has('persistent_undo')
-    let undo_path = expand('~/.vim/undo')
-    exe 'set undodir=' . undo_path
-    set undofile
+  let undo_path = expand('~/.vim/undo')
+  exe 'set undodir=' . undo_path
+  set undofile
 endif
 
 
@@ -802,7 +802,7 @@ let g:neocomplcache_dictionary_filetype_lists = {'default'    : '', 'perl'      
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+  let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
@@ -835,14 +835,14 @@ let g:syntastic_check_on_wq = 0
 " autocmd
 "==============================
 augroup filetype
-    autocmd!
-    " tex file (I always use latex)
-    autocmd BufRead,BufNewFile *.tex setlocal filetype=tex
+  autocmd!
+  " tex file (I always use latex)
+  autocmd BufRead,BufNewFile *.tex setlocal filetype=tex
 augroup END
 
 augroup fileTypeIndent
-    autocmd!
-    autocmd BufNewFile,BufRead *.tex setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=999,999
+  autocmd!
+  autocmd BufNewFile,BufRead *.tex setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=999,999
 augroup END
 
 let g:latex_latexmk_continuous = 1
@@ -853,41 +853,38 @@ let g:tex_conceal=''
 
 let g:quickrun_config = {}
 let g:quickrun_config['tex'] = {
-            \   'command' : 'latexmk',
-            \   'outputter' : 'error',
-            \   'outputter/error/error' : 'quickfix',
-            \   'cmdopt': '-pdfdvi',
-            \   'exec': ['%c %o %s']
-            \ }
+  \   'command' : 'latexmk',
+  \   'outputter' : 'error',
+  \   'outputter/error/error' : 'quickfix',
+  \   'cmdopt': '-pdfdvi',
+  \   'exec': ['%c %o %s']
+  \ }
 
 augroup myLaTeXQuickrun
-    au!
-    au BufEnter *.tex call <SID>SetLaTeXMainSource()
-    au BufEnter *.tex nnoremap <Leader>v :call <SID>TexPdfView() <CR>
+  au!
+  au BufEnter *.tex call <SID>SetLaTeXMainSource()
+  au BufEnter *.tex nnoremap <Leader>v :call <SID>TexPdfView() <CR>
 augroup END
 function! s:SetLaTeXMainSource()
-    let currentFileDirectory = expand('%:p:h').'\'
-    let latexmain = glob(currentFileDirectory.'*.latexmain')
-    let g:quickrun_config['tex']['srcfile'] = fnamemodify(latexmain, ':r')
-    if latexmain == ''
-        unlet g:quickrun_config['tex']['srcfile']
-    endif
+  let currentFileDirectory = expand('%:p:h').'\'
+  let latexmain = glob(currentFileDirectory.'*.latexmain')
+  let g:quickrun_config['tex']['srcfile'] = fnamemodify(latexmain, ':r')
+  if latexmain == ''
+    unlet g:quickrun_config['tex']['srcfile']
+  endif
 endfunction
 function! s:TexPdfView()
-    let texPdfFilename = expand('%')
-    if exists("g:quickrun_config['tex']['srcfile']")
-        let texPdfFilename = fnamemodify(g:quickrun_config['tex']['srcfile'], ':.:r') . '.pdf'
-    endif
-    if has('win32')
-        let g:TexPdfViewCommand = '!start '.
-                    \             texPdfFilename
-    endif
-    if has('unix')
-        let g:TexPdfViewCommand = ':! '.
-                    \             'evince'.
-                    \             texPdfFilename
-    endif
-    execute g:TexPdfViewCommand
+  let texPdfFilename = expand('%')
+  if exists("g:quickrun_config['tex']['srcfile']")
+    let texPdfFilename = fnamemodify(g:quickrun_config['tex']['srcfile'], ':.:r') . '.pdf'
+  endif
+  if has('win32')
+    let g:TexPdfViewCommand = '!start ' . texPdfFilename
+  endif
+  if has('unix')
+    let g:TexPdfViewCommand = ':! ' . 'evince' . texPdfFilename
+  endif
+  execute g:TexPdfViewCommand
 endfunction
 
 
@@ -897,6 +894,16 @@ endfunction
 "--------------------------------------------------"
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a chrome'
+
+
+
+"--------------------------------------------------"
+" vimで.vimrcを書くときにやっておきたいこと
+"--------------------------------------------------"
+augroup fileTypeIndent
+  autocmd!
+  autocmd BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=999,999
+augroup END
 
 
 
@@ -936,14 +943,14 @@ set list listchars=tab:>-
 
 " We have a dependency on buffer-local autocommands
 if version < 700
-    echo 'FAIL: XtermColorTable requires vim 7.0+'
-    finish
+  echo 'FAIL: XtermColorTable requires vim 7.0+'
+  finish
 endif
 
 let s:bufname = '__XtermColorTable__'
 
 if !exists('g:XtermColorTableDefaultOpen')
-    let g:XtermColorTableDefaultOpen = 'split'
+  let g:XtermColorTableDefaultOpen = 'split'
 endif
 
 command! XtermColorTable  call <SID>XtermColorTable()
@@ -954,212 +961,212 @@ command! EXtermColorTable call <SID>XtermColorTable('edit')
 command! OXtermColorTable call <SID>XtermColorTable('edit') | only
 
 augroup XtermColorTable
-    autocmd!
-    autocmd BufNewFile  __XtermColorTable__ call <SID>ColorTable()
-    autocmd ColorScheme *                   silent! doautoall XtermColorTableBuffer ColorScheme
+  autocmd!
+  autocmd BufNewFile  __XtermColorTable__ call <SID>ColorTable()
+  autocmd ColorScheme *                   silent! doautoall XtermColorTableBuffer ColorScheme
 augroup END
 
 function! s:XtermColorTable(...)
-    let bufid = bufnr(s:bufname)
-    let winid = bufwinnr(bufid)
-    let open = a:0 ? a:1 : g:XtermColorTableDefaultOpen
+  let bufid = bufnr(s:bufname)
+  let winid = bufwinnr(bufid)
+  let open = a:0 ? a:1 : g:XtermColorTableDefaultOpen
 
-    if bufid == -1
-        " Create new buffer
-        execute open . ' ' . s:bufname
-        return
-    elseif winid != -1 && winnr('$') > 1
-        " Close extant window
-        execute winid . 'wincmd w' | close
-    endif
+  if bufid == -1
+    " Create new buffer
+    execute open . ' ' . s:bufname
+    return
+  elseif winid != -1 && winnr('$') > 1
+    " Close extant window
+    execute winid . 'wincmd w' | close
+  endif
 
-    " Open extant buffer
-    execute open . ' +buffer' . bufid
+  " Open extant buffer
+  execute open . ' +buffer' . bufid
 endfunction
 
 function! s:ColorTable()
-    let rows = []
+  let rows = []
 
-    call add(rows, s:ColorRow(0,  7))
-    call add(rows, s:ColorRow(8, 15))
-    call add(rows, '')
+  call add(rows, s:ColorRow(0,  7))
+  call add(rows, s:ColorRow(8, 15))
+  call add(rows, '')
 
-    for lnum in range(16, 250, 6)
-        call add(rows, s:ColorRow(lnum, lnum + 5))
-        if lnum == 226
-            call add(rows, '')
-        endif
-    endfor
-
-    if &modifiable
-        call append(0, rows)
-        call append(len(rows) + 1, s:HelpComment())
-        call s:SetBufferOptions()
+  for lnum in range(16, 250, 6)
+    call add(rows, s:ColorRow(lnum, lnum + 5))
+    if lnum == 226
+      call add(rows, '')
     endif
+  endfor
+
+  if &modifiable
+    call append(0, rows)
+    call append(len(rows) + 1, s:HelpComment())
+    call s:SetBufferOptions()
+  endif
 endfunction
 
 function! s:ColorRow(start, end)
-    return join(map(range(a:start, a:end), 's:ColorCell(v:val)'))
+  return join(map(range(a:start, a:end), 's:ColorCell(v:val)'))
 endfunction
 
 function! s:ColorCell(n)
-    let rgb = s:xterm_colors[a:n]
+  let rgb = s:xterm_colors[a:n]
 
-    " Clear extant values
-    execute 'silent! syntax clear fg_' . a:n
-    execute 'silent! syntax clear bg_' . a:n
+  " Clear extant values
+  execute 'silent! syntax clear fg_' . a:n
+  execute 'silent! syntax clear bg_' . a:n
 
-    execute 'syntax match fg_' . a:n . ' " ' . a:n . ' " containedin=ALL'
-    execute 'syntax match bg_' . a:n . ' "'  . rgb . '" containedin=ALL'
+  execute 'syntax match fg_' . a:n . ' " ' . a:n . ' " containedin=ALL'
+  execute 'syntax match bg_' . a:n . ' "'  . rgb . '" containedin=ALL'
 
-    call s:HighlightCell(a:n, -1)
+  call s:HighlightCell(a:n, -1)
 
-    return printf(' %3s %7s', a:n, rgb)
+  return printf(' %3s %7s', a:n, rgb)
 endfunction
 
 function! s:HighlightCell(n, bgf)
-    let rgb = s:xterm_colors[a:n]
+  let rgb = s:xterm_colors[a:n]
 
-    " bgf has three states:
-    "   -2) black or white depending on intensity
-    "   -1) same as background
-    "   0+) xterm color value
-    if a:bgf == -2
-        let sum = 0
-        for val in map(split(substitute(rgb, '^#', '', ''), '\v\x{2}\zs'), 'str2nr(v:val, 16)')
-            " TODO: does Vimscript have a fold/reduce function?
-            let sum += val
-        endfor
-        let bgf = sum > (0xff * 1.5) ? 0 : 15
-    elseif a:bgf == -1
-        let bgf = a:n
-    else
-        let bgf = a:bgf
-    endif
+  " bgf has three states:
+  "   -2) black or white depending on intensity
+  "   -1) same as background
+  "   0+) xterm color value
+  if a:bgf == -2
+    let sum = 0
+    for val in map(split(substitute(rgb, '^#', '', ''), '\v\x{2}\zs'), 'str2nr(v:val, 16)')
+      " TODO: does Vimscript have a fold/reduce function?
+      let sum += val
+    endfor
+    let bgf = sum > (0xff * 1.5) ? 0 : 15
+  elseif a:bgf == -1
+    let bgf = a:n
+  else
+    let bgf = a:bgf
+  endif
 
-    " Clear any extant values
-    execute 'silent! highlight clear fg_' . a:n
-    execute 'silent! highlight clear bg_' . a:n
+  " Clear any extant values
+  execute 'silent! highlight clear fg_' . a:n
+  execute 'silent! highlight clear bg_' . a:n
 
-    execute 'highlight fg_' . a:n . ' ctermfg=' . a:n . ' guifg=' . rgb
-    execute 'highlight bg_' . a:n . ' ctermbg=' . a:n . ' guibg=' . rgb
-    execute 'highlight bg_' . a:n . ' ctermfg=' . bgf . ' guifg=' . s:xterm_colors[bgf]
+  execute 'highlight fg_' . a:n . ' ctermfg=' . a:n . ' guifg=' . rgb
+  execute 'highlight bg_' . a:n . ' ctermbg=' . a:n . ' guibg=' . rgb
+  execute 'highlight bg_' . a:n . ' ctermfg=' . bgf . ' guifg=' . s:xterm_colors[bgf]
 endfunction
 
 function! s:SetBufferOptions()
-    setlocal buftype=nofile bufhidden=hide buflisted
-    setlocal nomodified nomodifiable noswapfile readonly
-    setlocal nocursorline nocursorcolumn
-    setlocal iskeyword+=#
-    setlocal nospell
+  setlocal buftype=nofile bufhidden=hide buflisted
+  setlocal nomodified nomodifiable noswapfile readonly
+  setlocal nocursorline nocursorcolumn
+  setlocal iskeyword+=#
+  setlocal nospell
 
-    let b:XtermColorTableRgbVisible = 0
-    let b:XtermColorTableBGF = -2
+  let b:XtermColorTableRgbVisible = 0
+  let b:XtermColorTableBGF = -2
 
-    nmap <silent><buffer> # yiw:echo 'yanked: ' . @"<CR>
-    nmap <silent><buffer> t :call <SID>ToggleRgbVisibility()<CR>
-    nmap <silent><buffer> f :call <SID>SetRgbForeground(expand('<cword>'))<CR>
+  nmap <silent><buffer> # yiw:echo 'yanked: ' . @"<CR>
+  nmap <silent><buffer> t :call <SID>ToggleRgbVisibility()<CR>
+  nmap <silent><buffer> f :call <SID>SetRgbForeground(expand('<cword>'))<CR>
 
-    " Colorschemes often call `highlight clear';
-    " register a handler to deal with this
-    augroup XtermColorTableBuffer
-        autocmd! * <buffer>
-        autocmd ColorScheme <buffer> call s:HighlightTable(-1)
-    augroup END
+  " Colorschemes often call `highlight clear';
+  " register a handler to deal with this
+  augroup XtermColorTableBuffer
+    autocmd! * <buffer>
+    autocmd ColorScheme <buffer> call s:HighlightTable(-1)
+  augroup END
 endfunction
 
 function! s:HelpComment()
-    " we have to define our own comment type
-    silent! syntax clear XtermColorTableComment
-    syntax match XtermColorTableComment ';.*'
-    highlight link XtermColorTableComment Comment
+  " we have to define our own comment type
+  silent! syntax clear XtermColorTableComment
+  syntax match XtermColorTableComment ';.*'
+  highlight link XtermColorTableComment Comment
 
-    let lines = []
-    call add(lines, "; # to copy current color (yiw)")
-    call add(lines, "; t to toggle RGB visibility")
-    call add(lines, "; f to set RGB foreground color")
+  let lines = []
+  call add(lines, "; # to copy current color (yiw)")
+  call add(lines, "; t to toggle RGB visibility")
+  call add(lines, "; f to set RGB foreground color")
 
-    return lines
+  return lines
 endfunction
 
 function! s:ToggleRgbVisibility()
-    let bgf = b:XtermColorTableRgbVisible ? -1 : b:XtermColorTableBGF
-    let b:XtermColorTableRgbVisible = (b:XtermColorTableRgbVisible + 1) % 2
+  let bgf = b:XtermColorTableRgbVisible ? -1 : b:XtermColorTableBGF
+  let b:XtermColorTableRgbVisible = (b:XtermColorTableRgbVisible + 1) % 2
 
-    call s:HighlightTable(bgf)
+  call s:HighlightTable(bgf)
 endfunction
 
 function! s:HighlightTable(bgf)
-    for val in range(0, 0xff) | call s:HighlightCell(val, a:bgf) | endfor
+  for val in range(0, 0xff) | call s:HighlightCell(val, a:bgf) | endfor
 endfunction
 
 function! s:SetRgbForeground(cword)
-    if len(a:cword)
-        let sname = synIDattr(synID(line('.'), col('.'), 0), 'name')
-        let b:XtermColorTableBGF = substitute(sname, '\v^\w+_', '', '') + 0
-    else
-        let b:XtermColorTableBGF = -2
-    endif
+  if len(a:cword)
+    let sname = synIDattr(synID(line('.'), col('.'), 0), 'name')
+    let b:XtermColorTableBGF = substitute(sname, '\v^\w+_', '', '') + 0
+  else
+    let b:XtermColorTableBGF = -2
+  endif
 
-    if b:XtermColorTableRgbVisible
-        call s:HighlightTable(b:XtermColorTableBGF)
-    else
-        call s:ToggleRgbVisibility()
-    endif
+  if b:XtermColorTableRgbVisible
+    call s:HighlightTable(b:XtermColorTableBGF)
+  else
+    call s:ToggleRgbVisibility()
+  endif
 endfunction
 
 """ Xterm 256 color dictionary
 
 let s:xterm_colors = {
-    \ '0':   '#000000', '1':   '#800000', '2':   '#008000', '3':   '#808000', '4':   '#000080',
-    \ '5':   '#800080', '6':   '#008080', '7':   '#c0c0c0', '8':   '#808080', '9':   '#ff0000',
-    \ '10':  '#00ff00', '11':  '#ffff00', '12':  '#0000ff', '13':  '#ff00ff', '14':  '#00ffff',
-    \ '15':  '#ffffff', '16':  '#000000', '17':  '#00005f', '18':  '#000087', '19':  '#0000af',
-    \ '20':  '#0000df', '21':  '#0000ff', '22':  '#005f00', '23':  '#005f5f', '24':  '#005f87',
-    \ '25':  '#005faf', '26':  '#005fdf', '27':  '#005fff', '28':  '#008700', '29':  '#00875f',
-    \ '30':  '#008787', '31':  '#0087af', '32':  '#0087df', '33':  '#0087ff', '34':  '#00af00',
-    \ '35':  '#00af5f', '36':  '#00af87', '37':  '#00afaf', '38':  '#00afdf', '39':  '#00afff',
-    \ '40':  '#00df00', '41':  '#00df5f', '42':  '#00df87', '43':  '#00dfaf', '44':  '#00dfdf',
-    \ '45':  '#00dfff', '46':  '#00ff00', '47':  '#00ff5f', '48':  '#00ff87', '49':  '#00ffaf',
-    \ '50':  '#00ffdf', '51':  '#00ffff', '52':  '#5f0000', '53':  '#5f005f', '54':  '#5f0087',
-    \ '55':  '#5f00af', '56':  '#5f00df', '57':  '#5f00ff', '58':  '#5f5f00', '59':  '#5f5f5f',
-    \ '60':  '#5f5f87', '61':  '#5f5faf', '62':  '#5f5fdf', '63':  '#5f5fff', '64':  '#5f8700',
-    \ '65':  '#5f875f', '66':  '#5f8787', '67':  '#5f87af', '68':  '#5f87df', '69':  '#5f87ff',
-    \ '70':  '#5faf00', '71':  '#5faf5f', '72':  '#5faf87', '73':  '#5fafaf', '74':  '#5fafdf',
-    \ '75':  '#5fafff', '76':  '#5fdf00', '77':  '#5fdf5f', '78':  '#5fdf87', '79':  '#5fdfaf',
-    \ '80':  '#5fdfdf', '81':  '#5fdfff', '82':  '#5fff00', '83':  '#5fff5f', '84':  '#5fff87',
-    \ '85':  '#5fffaf', '86':  '#5fffdf', '87':  '#5fffff', '88':  '#870000', '89':  '#87005f',
-    \ '90':  '#870087', '91':  '#8700af', '92':  '#8700df', '93':  '#8700ff', '94':  '#875f00',
-    \ '95':  '#875f5f', '96':  '#875f87', '97':  '#875faf', '98':  '#875fdf', '99':  '#875fff',
-    \ '100': '#878700', '101': '#87875f', '102': '#878787', '103': '#8787af', '104': '#8787df',
-    \ '105': '#8787ff', '106': '#87af00', '107': '#87af5f', '108': '#87af87', '109': '#87afaf',
-    \ '110': '#87afdf', '111': '#87afff', '112': '#87df00', '113': '#87df5f', '114': '#87df87',
-    \ '115': '#87dfaf', '116': '#87dfdf', '117': '#87dfff', '118': '#87ff00', '119': '#87ff5f',
-    \ '120': '#87ff87', '121': '#87ffaf', '122': '#87ffdf', '123': '#87ffff', '124': '#af0000',
-    \ '125': '#af005f', '126': '#af0087', '127': '#af00af', '128': '#af00df', '129': '#af00ff',
-    \ '130': '#af5f00', '131': '#af5f5f', '132': '#af5f87', '133': '#af5faf', '134': '#af5fdf',
-    \ '135': '#af5fff', '136': '#af8700', '137': '#af875f', '138': '#af8787', '139': '#af87af',
-    \ '140': '#af87df', '141': '#af87ff', '142': '#afaf00', '143': '#afaf5f', '144': '#afaf87',
-    \ '145': '#afafaf', '146': '#afafdf', '147': '#afafff', '148': '#afdf00', '149': '#afdf5f',
-    \ '150': '#afdf87', '151': '#afdfaf', '152': '#afdfdf', '153': '#afdfff', '154': '#afff00',
-    \ '155': '#afff5f', '156': '#afff87', '157': '#afffaf', '158': '#afffdf', '159': '#afffff',
-    \ '160': '#df0000', '161': '#df005f', '162': '#df0087', '163': '#df00af', '164': '#df00df',
-    \ '165': '#df00ff', '166': '#df5f00', '167': '#df5f5f', '168': '#df5f87', '169': '#df5faf',
-    \ '170': '#df5fdf', '171': '#df5fff', '172': '#df8700', '173': '#df875f', '174': '#df8787',
-    \ '175': '#df87af', '176': '#df87df', '177': '#df87ff', '178': '#dfaf00', '179': '#dfaf5f',
-    \ '180': '#dfaf87', '181': '#dfafaf', '182': '#dfafdf', '183': '#dfafff', '184': '#dfdf00',
-    \ '185': '#dfdf5f', '186': '#dfdf87', '187': '#dfdfaf', '188': '#dfdfdf', '189': '#dfdfff',
-    \ '190': '#dfff00', '191': '#dfff5f', '192': '#dfff87', '193': '#dfffaf', '194': '#dfffdf',
-    \ '195': '#dfffff', '196': '#ff0000', '197': '#ff005f', '198': '#ff0087', '199': '#ff00af',
-    \ '200': '#ff00df', '201': '#ff00ff', '202': '#ff5f00', '203': '#ff5f5f', '204': '#ff5f87',
-    \ '205': '#ff5faf', '206': '#ff5fdf', '207': '#ff5fff', '208': '#ff8700', '209': '#ff875f',
-    \ '210': '#ff8787', '211': '#ff87af', '212': '#ff87df', '213': '#ff87ff', '214': '#ffaf00',
-    \ '215': '#ffaf5f', '216': '#ffaf87', '217': '#ffafaf', '218': '#ffafdf', '219': '#ffafff',
-    \ '220': '#ffdf00', '221': '#ffdf5f', '222': '#ffdf87', '223': '#ffdfaf', '224': '#ffdfdf',
-    \ '225': '#ffdfff', '226': '#ffff00', '227': '#ffff5f', '228': '#ffff87', '229': '#ffffaf',
-    \ '230': '#ffffdf', '231': '#ffffff', '232': '#080808', '233': '#121212', '234': '#1c1c1c',
-    \ '235': '#262626', '236': '#303030', '237': '#3a3a3a', '238': '#444444', '239': '#4e4e4e',
-    \ '240': '#585858', '241': '#606060', '242': '#666666', '243': '#767676', '244': '#808080',
-    \ '245': '#8a8a8a', '246': '#949494', '247': '#9e9e9e', '248': '#a8a8a8', '249': '#b2b2b2',
-    \ '250': '#bcbcbc', '251': '#c6c6c6', '252': '#d0d0d0', '253': '#dadada', '254': '#e4e4e4',
-    \ '255': '#eeeeee', 'fg': 'fg', 'bg': 'bg', 'NONE': 'NONE' }
+  \ '0':   '#000000', '1':   '#800000', '2':   '#008000', '3':   '#808000', '4':   '#000080',
+  \ '5':   '#800080', '6':   '#008080', '7':   '#c0c0c0', '8':   '#808080', '9':   '#ff0000',
+  \ '10':  '#00ff00', '11':  '#ffff00', '12':  '#0000ff', '13':  '#ff00ff', '14':  '#00ffff',
+  \ '15':  '#ffffff', '16':  '#000000', '17':  '#00005f', '18':  '#000087', '19':  '#0000af',
+  \ '20':  '#0000df', '21':  '#0000ff', '22':  '#005f00', '23':  '#005f5f', '24':  '#005f87',
+  \ '25':  '#005faf', '26':  '#005fdf', '27':  '#005fff', '28':  '#008700', '29':  '#00875f',
+  \ '30':  '#008787', '31':  '#0087af', '32':  '#0087df', '33':  '#0087ff', '34':  '#00af00',
+  \ '35':  '#00af5f', '36':  '#00af87', '37':  '#00afaf', '38':  '#00afdf', '39':  '#00afff',
+  \ '40':  '#00df00', '41':  '#00df5f', '42':  '#00df87', '43':  '#00dfaf', '44':  '#00dfdf',
+  \ '45':  '#00dfff', '46':  '#00ff00', '47':  '#00ff5f', '48':  '#00ff87', '49':  '#00ffaf',
+  \ '50':  '#00ffdf', '51':  '#00ffff', '52':  '#5f0000', '53':  '#5f005f', '54':  '#5f0087',
+  \ '55':  '#5f00af', '56':  '#5f00df', '57':  '#5f00ff', '58':  '#5f5f00', '59':  '#5f5f5f',
+  \ '60':  '#5f5f87', '61':  '#5f5faf', '62':  '#5f5fdf', '63':  '#5f5fff', '64':  '#5f8700',
+  \ '65':  '#5f875f', '66':  '#5f8787', '67':  '#5f87af', '68':  '#5f87df', '69':  '#5f87ff',
+  \ '70':  '#5faf00', '71':  '#5faf5f', '72':  '#5faf87', '73':  '#5fafaf', '74':  '#5fafdf',
+  \ '75':  '#5fafff', '76':  '#5fdf00', '77':  '#5fdf5f', '78':  '#5fdf87', '79':  '#5fdfaf',
+  \ '80':  '#5fdfdf', '81':  '#5fdfff', '82':  '#5fff00', '83':  '#5fff5f', '84':  '#5fff87',
+  \ '85':  '#5fffaf', '86':  '#5fffdf', '87':  '#5fffff', '88':  '#870000', '89':  '#87005f',
+  \ '90':  '#870087', '91':  '#8700af', '92':  '#8700df', '93':  '#8700ff', '94':  '#875f00',
+  \ '95':  '#875f5f', '96':  '#875f87', '97':  '#875faf', '98':  '#875fdf', '99':  '#875fff',
+  \ '100': '#878700', '101': '#87875f', '102': '#878787', '103': '#8787af', '104': '#8787df',
+  \ '105': '#8787ff', '106': '#87af00', '107': '#87af5f', '108': '#87af87', '109': '#87afaf',
+  \ '110': '#87afdf', '111': '#87afff', '112': '#87df00', '113': '#87df5f', '114': '#87df87',
+  \ '115': '#87dfaf', '116': '#87dfdf', '117': '#87dfff', '118': '#87ff00', '119': '#87ff5f',
+  \ '120': '#87ff87', '121': '#87ffaf', '122': '#87ffdf', '123': '#87ffff', '124': '#af0000',
+  \ '125': '#af005f', '126': '#af0087', '127': '#af00af', '128': '#af00df', '129': '#af00ff',
+  \ '130': '#af5f00', '131': '#af5f5f', '132': '#af5f87', '133': '#af5faf', '134': '#af5fdf',
+  \ '135': '#af5fff', '136': '#af8700', '137': '#af875f', '138': '#af8787', '139': '#af87af',
+  \ '140': '#af87df', '141': '#af87ff', '142': '#afaf00', '143': '#afaf5f', '144': '#afaf87',
+  \ '145': '#afafaf', '146': '#afafdf', '147': '#afafff', '148': '#afdf00', '149': '#afdf5f',
+  \ '150': '#afdf87', '151': '#afdfaf', '152': '#afdfdf', '153': '#afdfff', '154': '#afff00',
+  \ '155': '#afff5f', '156': '#afff87', '157': '#afffaf', '158': '#afffdf', '159': '#afffff',
+  \ '160': '#df0000', '161': '#df005f', '162': '#df0087', '163': '#df00af', '164': '#df00df',
+  \ '165': '#df00ff', '166': '#df5f00', '167': '#df5f5f', '168': '#df5f87', '169': '#df5faf',
+  \ '170': '#df5fdf', '171': '#df5fff', '172': '#df8700', '173': '#df875f', '174': '#df8787',
+  \ '175': '#df87af', '176': '#df87df', '177': '#df87ff', '178': '#dfaf00', '179': '#dfaf5f',
+  \ '180': '#dfaf87', '181': '#dfafaf', '182': '#dfafdf', '183': '#dfafff', '184': '#dfdf00',
+  \ '185': '#dfdf5f', '186': '#dfdf87', '187': '#dfdfaf', '188': '#dfdfdf', '189': '#dfdfff',
+  \ '190': '#dfff00', '191': '#dfff5f', '192': '#dfff87', '193': '#dfffaf', '194': '#dfffdf',
+  \ '195': '#dfffff', '196': '#ff0000', '197': '#ff005f', '198': '#ff0087', '199': '#ff00af',
+  \ '200': '#ff00df', '201': '#ff00ff', '202': '#ff5f00', '203': '#ff5f5f', '204': '#ff5f87',
+  \ '205': '#ff5faf', '206': '#ff5fdf', '207': '#ff5fff', '208': '#ff8700', '209': '#ff875f',
+  \ '210': '#ff8787', '211': '#ff87af', '212': '#ff87df', '213': '#ff87ff', '214': '#ffaf00',
+  \ '215': '#ffaf5f', '216': '#ffaf87', '217': '#ffafaf', '218': '#ffafdf', '219': '#ffafff',
+  \ '220': '#ffdf00', '221': '#ffdf5f', '222': '#ffdf87', '223': '#ffdfaf', '224': '#ffdfdf',
+  \ '225': '#ffdfff', '226': '#ffff00', '227': '#ffff5f', '228': '#ffff87', '229': '#ffffaf',
+  \ '230': '#ffffdf', '231': '#ffffff', '232': '#080808', '233': '#121212', '234': '#1c1c1c',
+  \ '235': '#262626', '236': '#303030', '237': '#3a3a3a', '238': '#444444', '239': '#4e4e4e',
+  \ '240': '#585858', '241': '#606060', '242': '#666666', '243': '#767676', '244': '#808080',
+  \ '245': '#8a8a8a', '246': '#949494', '247': '#9e9e9e', '248': '#a8a8a8', '249': '#b2b2b2',
+  \ '250': '#bcbcbc', '251': '#c6c6c6', '252': '#d0d0d0', '253': '#dadada', '254': '#e4e4e4',
+  \ '255': '#eeeeee', 'fg': 'fg', 'bg': 'bg', 'NONE': 'NONE' }
