@@ -540,7 +540,6 @@ nnoremap <RightMouse> p
 syntax enable
 " console2 solalized light=0, dark=1, default solarized light=3, dark=4
 " molokai=2
-let colorSchemeList = 5
 set termguicolors
 
 " luochen1990/rainbow 有効化
