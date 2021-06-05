@@ -471,6 +471,8 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+" 文字検索したらハイライトつけたい
+set hlsearch
 " 文字検索した後のハイライトを消したい
 nnoremap <ESC><ESC> :noh<CR>
 " tree表示が長ったらしいから省略
