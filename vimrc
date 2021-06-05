@@ -59,6 +59,12 @@ scriptencoding utf-8
 "   設定可能カラー確認
 "   :XtermColorTable
 
+""
+" Clipboard_with_WSL: WSL (Bash on Ubuntu on Windows) でのクリップボード共有
+"   fakeclipを使えばできるらしいけど、実際はできなかった
+"   Windows側でVcXsrvを実行し、WSL側でbashrcに `export DISPLAY=localhost:0.0`
+"   を追加すればよい
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Knowledge: 知っておくべきコマンドやキーマッピングたち
 " <ESC><ESC> 文末のスペースキーを消す
@@ -290,6 +296,9 @@ call dein#add('nathanaelkane/vim-indent-guides')
 " 行末の半角スペースを可視化
 call dein#add('bronson/vim-trailing-whitespace')
 
+" 強制的にクリップボードからコピーできるようにする
+call dein#add('kana/vim-fakeclip')
+
 " ファイルをtree表示してくれる
 call dein#add('scrooloose/nerdtree')
 
@@ -306,6 +315,9 @@ call dein#add('altercation/vim-colors-solarized')
 
 " molokaiを使う
 call dein#add('tomasr/molokai')
+
+" monokai-proを使う
+call dein#add('phanviet/vim-monokai-pro')
 
 " gruvboxを使う
 call dein#add('morhetz/gruvbox')
@@ -478,6 +490,11 @@ nnoremap <ESC><ESC> :noh<CR>
 " tree表示が長ったらしいから省略
 nnoremap <C-t> :NERDTree<CR>
 nnoremap s <Nop>
+" fakeclip用簡易コマンド（動作しなかったためコメントアウト）
+" nnoremap <silent> <Space>y "*Y
+" vnoremap <silent> <Space>y "*Y
+" nnoremap <silent> <Space>p "*P
+" vnoremap <silent> <Space>p "*P
 " 画面分割後のウィンドウの大きさ変更
 call submode#enter_with('bufmove', 'n', '', 'sl', '<C-w>>')
 call submode#enter_with('bufmove', 'n', '', 'sh', '<C-w><')
@@ -543,10 +560,10 @@ if colorSchemeList == 0
     endtry
 
 elseif colorSchemeList == 1
-    " """"""""""""""""""""""""""""""""""""""""""""""""""
-    " " カラースキーマ変更
-    " """"""""""""""""""""""""""""""""""""""""""""""""""
-    " " 背景をコンソールの背景と同一色にし、異なる通常背景とも統一
+    """"""""""""""""""""""""""""""""""""""""""""""""""
+    " カラースキーマ変更
+    """"""""""""""""""""""""""""""""""""""""""""""""""
+    " 背景をコンソールの背景と同一色にし、異なる通常背景とも統一
     " autocmd ColorScheme * highlight Normal ctermbg=none
     " autocmd ColorScheme * highlight vimGroup ctermfg=4 ctermbg=0
     " autocmd ColorScheme * highlight perlHereDoc ctermbg=none
@@ -559,11 +576,11 @@ elseif colorSchemeList == 1
     " autocmd ColorScheme * highlight rubyDefine ctermbg=none
     " autocmd ColorScheme * highlight Comment ctermfg=7 ctermbg=14 guibg=Gray
     " autocmd ColorScheme * highlight ColorColumn ctermfg=0 ctermbg=4
-    " " 選択時を変更
+    " 選択時を変更
     " autocmd ColorScheme * highlight Visual ctermfg=0 ctermbg=14
     " autocmd ColorScheme * highlight Search ctermfg=0 ctermbg=4
     " autocmd ColorScheme * highlight IncSearch ctermfg=0 ctermbg=4
-    " " Perlの文をちょっと変える
+    " Perlの文をちょっと変える
     " autocmd ColorScheme * highlight perlString ctermfg=1
     " " autocmd ColorScheme * highlight perlComment ctermfg=0
     " " vimrcの文もちょっと変える
@@ -618,7 +635,12 @@ elseif colorSchemeList == 5
     autocmd VimEnter,Colorscheme * highlight IndentGuidesEven ctermfg=lightgray guifg=lightgray guibg='#16160e' ctermbg=darkgray
 
     let g:gruvbox_italic=1
+    set bg=dark
     colorscheme gruvbox
+
+elseif colorSchemeList == 6
+    set background=dark
+    colorscheme monokai_pro
 
 endif
 
@@ -712,7 +734,7 @@ set history=10000
 set mouse=a
 
 " クリップボードにコピペできるようにする
-set clipboard=unnamed,autoselect
+set clipboard=unnamedplus,unnamed,autoselect
 
 " xtermとscreen対応
 set ttymouse=xterm2
@@ -744,7 +766,7 @@ augroup END  " }}}
 " undoディレクトリ内に変更履歴を保存する
 if has('persistent_undo')
     let undo_path = expand('~/.vim/undo')
-    exe 'set undodir=' .. undo_path
+    exe 'set undodir=' . undo_path
     set undofile
 endif
 
