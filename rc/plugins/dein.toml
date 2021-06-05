@@ -147,6 +147,11 @@ repo = 'tyru/open-browser.vim'
 
 
 [[plugins]]
+# TOMLファイルのシンタックスハイライト
+repo = 'cespare/vim-toml'
+
+
+[[plugins]]
 # snippetを使う（最新版）01
 repo = 'Shougo/neocomplcache'
 
