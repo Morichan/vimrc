@@ -7,6 +7,21 @@
 # 導入方法
 
 ```sh
+# GitHubからリポジトリをクローンする
+git clone https://github.com/Morichan/vimrc.git
+
+# クローンしたディレクトリに移動する
+cd vimrc
+
+# 設定を読込む
+./install.sh
+perl install_dein.pl
+```
+
+
+## 古い方法
+
+```sh
 $ dir
 vim80-kaoriya-win32 # vim.exeが存在するフォルダ
 

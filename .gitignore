@@ -2,6 +2,8 @@
 !.gitignore
 !vimrc*
 !README.md
+!install.*
 !install_dein.pl
 !show256colors.pl
+!settings/
 
