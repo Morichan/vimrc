@@ -514,7 +514,8 @@ nnoremap vbash :belowright :terminal ubuntu<CR>
 nnoremap termp :belowright :terminal powershell<CR>
 nnoremap vtermp :vertical :terminal powershell<CR>
 tnoremap <C-A> <C-W>N:set nonumber<CR>:set nornu<CR>:set colorcolumn=0<CR>
-tnoremap <C-I> <C-W>N:set nonumber<CR>:set nornu<CR>:set colorcolumn=0<CR>
+" Terminal-Jobモード時にタブキーを入力すると強制的に <C-I> が入力されたことになる
+" tnoremap <C-I> <C-W>N:set nonumber<CR>:set nornu<CR>:set colorcolumn=0<CR>
 tnoremap <C-P> <C-W>""
 tnoremap <C-q> <C-\><C-n>:q!<CR>
 " nnoremap <ESC> :q!<CR> " 全てのノーマルモードで実行されてしまう
