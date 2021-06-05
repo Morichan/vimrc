@@ -295,6 +295,8 @@ call dein#add('andymass/vim-matchup')
 call dein#add('nathanaelkane/vim-indent-guides')
 " 行末の半角スペースを可視化
 call dein#add('bronson/vim-trailing-whitespace')
+" 括弧の可読性向上
+call dein#add('luochen1990/rainbow')
 
 " 強制的にクリップボードからコピーできるようにする
 call dein#add('kana/vim-fakeclip')
@@ -540,6 +542,9 @@ syntax enable
 " molokai=2
 let colorSchemeList = 5
 set termguicolors
+
+" luochen1990/rainbow 有効化
+let g:rainbow_active = 1
 
 ""
 " Tips:ハイライト変更はカラースキーマ設定の前に
@@ -915,6 +920,7 @@ let g:previm_open_cmd = 'open -a chrome'
 augroup fileTypeIndent
   autocmd!
   autocmd BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=999,999
+  autocmd BufNewFile,BufRead *vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=999,999
   autocmd BufNewFile,BufRead *.vim setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=999,999
 augroup END
 
