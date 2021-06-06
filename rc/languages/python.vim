@@ -20,5 +20,5 @@ autocmd BufNewFile,BufRead *.py syntax match pythonDocstring /'''\_.\{-}'''/ con
 autocmd FileType python PyDocHide
 
 " vim-pydocstring（docstringのテンプレを出力する）
-let g:pydocstring_templates_dir = '~/.vim/dein/repos/github.com/heavenshell/vim-pydocstring/test/templates/numpy/'
+let g:pydocstring_templates_dir = g:VIM_DOTFILES_ROOT_DIR . '/.vim/dein/repos/github.com/heavenshell/vim-pydocstring/test/templates/numpy/'
 

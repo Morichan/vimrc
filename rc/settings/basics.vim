@@ -103,7 +103,7 @@ augroup END  " }}}
 
 " undoディレクトリ内に変更履歴を保存する
 if has('persistent_undo')
-  let undo_path = expand('~/.vim/undo')
+  let undo_path = expand(g:VIM_DOTFILES_ROOT_DIR . '/.vim/undo')
   exe 'set undodir=' . undo_path
   set undofile
 endif

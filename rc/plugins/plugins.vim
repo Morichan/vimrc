@@ -83,10 +83,10 @@
 " Dein: next generation of NeoBundle
 " supported from more vim7.4
 "
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+exe 'set runtimepath+=' .  g:VIM_DOTFILES_ROOT_DIR . '/.vim/dein/repos/github.com/Shougo/dein.vim'
 
-let s:dein_dir = expand('~/.vim/dein')
-let s:dein_toml_dir = expand('rc/plugins')
+let s:dein_dir = expand(g:VIM_DOTFILES_ROOT_DIR . '/.vim/dein')
+let s:dein_toml_dir = expand(g:VIM_DOTFILES_ROOT_DIR . '/rc/plugins')
 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)

@@ -22,9 +22,9 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 let g:neocomplcache_ctags_arguments_list = {'perl' : '-R -h ".pm"'}
 
-let g:neocomplcache_snippets_dir = "~/.vim/snippets"
+let g:neocomplcache_snippets_dir = g:VIM_DOTFILES_ROOT_DIR . "/.vim/snippets"
 " Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {'default'    : '', 'perl'       : $HOME . '/.vim/dict/perl.dict'}
+let g:neocomplcache_dictionary_filetype_lists = {'default': '', 'perl': g:VIM_DOTFILES_ROOT_DIR . '/.vim/dict/perl.dict'}
 
 
 " Define keyword.
