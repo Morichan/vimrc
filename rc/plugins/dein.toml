@@ -11,6 +11,55 @@ repo = 'itchyny/lightline.vim'
 
 
 [[plugins]]
+# みんな大好きライン表示カスタマイザー
+repo = 'vim-airline/vim-airline'
+depends = [ 'vim-airline-themes' ]
+hook_add = '''
+  " テーマはここを参照のこと
+  " https://github.com/vim-airline/vim-airline/wiki/Screenshots
+  let g:airline_theme = 'powerlineish'
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline_powerline_fonts = 1
+
+  " <C-w>で消えてしまう不具合の対症療法
+  " empty-promptなどのTerminalモードで:が初期入力可能な状態でのみ利用可能
+  nmap <C-w><C-w> <C-w><C-w>:AirlineRefresh<CR>
+  nmap <C-w>h <C-w>h:AirlineRefresh<CR>
+  nmap <C-w>j <C-w>j:AirlineRefresh<CR>
+  nmap <C-w>k <C-w>k:AirlineRefresh<CR>
+  nmap <C-w>l <C-w>l:AirlineRefresh<CR>
+  tnoremap <C-w><C-w> <C-w><C-w>:AirlineRefresh<CR>
+  tnoremap <C-w>h <C-w>h:AirlineRefresh<CR>
+  tnoremap <C-w>j <C-w>j:AirlineRefresh<CR>
+  tnoremap <C-w>k <C-w>k:AirlineRefresh<CR>
+  tnoremap <C-w>l <C-w>l:AirlineRefresh<CR>
+'''
+
+
+[[plugins]]
+# vim-airlineテーマ集
+repo = 'vim-airline/vim-airline-themes'
+
+
+[[plugins]]
+# vim-airlineでGitブランチおよび状態を確認できる機能
+repo = 'tpope/vim-fugitive'
+
+
+# [[plugins]]
+# # Terminalモードで:を入力できるようにする機能
+# # Zshにおけるpureモードでの利用が難しかったため、mapping.vimにカスタム設定を付与
+# repo = 'tyru/empty-prompt.vim'
+# hook_post_source = '''
+#   function! s:empty_prompt_mappings() abort
+#     call empty_prompt#map(#{lhs: ':', rhs: "<C-a>:"})
+#     call empty_prompt#map(#{lhs: '<Esc>', rhs: "<C-a>N"})
+#   endfunction
+#   autocmd VimEnter * ++once call s:empty_prompt_mappings()
+# '''
+
+
+[[plugins]]
 # ウィンドウのリサイズ高速化
 # <C-e> にてリサイズモードに移行する
 repo = 'simeji/winresizer'

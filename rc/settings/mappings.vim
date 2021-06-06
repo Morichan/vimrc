@@ -44,6 +44,19 @@ tnoremap <C-q> <C-\><C-n>:q!<CR>
 " nnoremap <ESC> :q!<CR> " 全てのノーマルモードで実行されてしまう
 nnoremap <RightMouse> p
 
+" empty-prompt.vimプラグインでは利用が難しいスクリプト判定を追加する
+" https://tyru.hatenablog.com/entry/2020/01/06/152929
+function! s:is_empty_prompt()
+  return (&shell =~# 'sh$'
+    \ ? term_getline(bufnr(''), '.') =~# '❯ $'
+    \   || term_getline(bufnr(''), '.') =~# '\$ $'
+    \   || term_getline(bufnr(''), '.') =~# '% $'
+    \   || term_getline(bufnr(''), '.') =~# '# $'
+    \ : term_getline(bufnr(''), '.') =~# '> $')
+endfunction
+tnoremap <expr>:     <SID>is_empty_prompt() ? "\<C-w>:" : ':'
+tnoremap <expr><ESC> <SID>is_empty_prompt() ? "\<C-w>N" : "<ESC>"
+
 ""
 " Tips:コマンドは:wqのwq部分を別の入力に変更する
 "      コードマッピングはj（下に移動）を別の入力に変更する
