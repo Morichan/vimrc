@@ -128,6 +128,12 @@ repo = 'kana/vim-fakeclip'
 
 
 [[plugins]]
+# NERDTree上にGit差分状態を表示する
+repo = 'Xuyuanp/nerdtree-git-plugin'
+depends = [ 'nerdtree' ]
+
+
+[[plugins]]
 # ファイルをtree表示してくれる
 repo = 'scrooloose/nerdtree'
 
