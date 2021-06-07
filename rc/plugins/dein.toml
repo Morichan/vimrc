@@ -60,7 +60,7 @@ repo = 'tpope/vim-fugitive'
 
 
 [[plugins]]
-# 移動高速化
+# 移動高機能化
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
   let g:EasyMotion_do_mapping = 0
@@ -68,6 +68,11 @@ hook_add = '''
   nmap <Leader><Leader>j <Plug>(easymotion-j)
   nmap <Leader><Leader>k <Plug>(easymotion-k)
 '''
+
+
+[[plugins]]
+# 単純移動高速化
+repo = 'deris/vim-gothrough-jk'
 
 
 [[plugins]]
