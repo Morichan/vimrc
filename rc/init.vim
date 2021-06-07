@@ -1,6 +1,9 @@
 scriptencoding utf-8
 " 上記はUTF-8を利用する際に必須行
 
+" Leaderコマンド
+let mapleader = "\<SPACE>"
+
 runtime! init/config.vim
 runtime! init/platforms.vim
 
