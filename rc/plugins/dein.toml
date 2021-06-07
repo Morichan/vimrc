@@ -76,6 +76,15 @@ repo = 'deris/vim-gothrough-jk'
 
 
 [[plugins]]
+# 単純移動平滑化
+repo = 'yuttie/comfortable-motion.vim'
+hook_add = '''
+  let g:comfortable_motion_friction = 1000.0
+  let g:comfortable_motion_air_drag = 2.0
+'''
+
+
+[[plugins]]
 # ウィンドウのリサイズ高速化
 # <C-e> にてリサイズモードに移行する
 repo = 'simeji/winresizer'
