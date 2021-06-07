@@ -232,6 +232,17 @@ repo = 'cespare/vim-toml'
 
 
 [[plugins]]
+# dein.tomlのような、部分的に構文が異なっている箇所のシンタックスハイライト遷移
+repo = 'osyo-manga/vim-precious'
+depends = [ 'context_filetype.vim' ]
+
+
+[[plugins]]
+# 部分的に構文が異なっている箇所の検知？（vim-preciousプラグインとセットで入れただけ）
+repo = 'Shougo/context_filetype.vim'
+
+
+[[plugins]]
 # snippetを使う（最新版）01
 repo = 'Shougo/neocomplcache'
 
