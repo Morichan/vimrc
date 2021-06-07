@@ -48,14 +48,14 @@ nnoremap <RightMouse> p
 " https://tyru.hatenablog.com/entry/2020/01/06/152929
 function! s:is_empty_prompt()
   return (&shell =~# 'sh$'
-    \ ? term_getline(bufnr(''), '.') =~# '❯ $'
-    \   || term_getline(bufnr(''), '.') =~# '\$ $'
-    \   || term_getline(bufnr(''), '.') =~# '% $'
-    \   || term_getline(bufnr(''), '.') =~# '# $'
-    \ : term_getline(bufnr(''), '.') =~# '> $')
+    \ ? term_getline(bufnr(''), '.') =~# '❯\s\+$'
+    \   || term_getline(bufnr(''), '.') =~# '\$\s\+$'
+    \   || term_getline(bufnr(''), '.') =~# '%\s\+$'
+    \   || term_getline(bufnr(''), '.') =~# '#\s\+$'
+    \ : term_getline(bufnr(''), '.') =~# '>\s*$')
 endfunction
 tnoremap <expr>:     <SID>is_empty_prompt() ? "\<C-w>:" : ':'
-tnoremap <expr><ESC> <SID>is_empty_prompt() ? "\<C-w>N" : "<ESC>"
+" tnoremap <expr><ESC> <SID>is_empty_prompt() ? "\<C-w>N" : "<ESC>"
 
 ""
 " Tips:コマンドは:wqのwq部分を別の入力に変更する
