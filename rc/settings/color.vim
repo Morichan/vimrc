@@ -175,3 +175,17 @@ endif
 " 81行目以降の色を変える
 execute "set colorcolumn=" . join(range(81, 999), ',')
 
+" 未保存バッファを着色する
+if exists('+colorcolumn')
+  highlight ColorColumn ctermbg=52 guibg=#5f0000
+  function! s:AlertModification()
+    if &modified
+      let &colorcolumn = join(range(1, 999), ',')
+    endif
+  endfunction
+  augroup AlertModification
+    au!
+    au WinLeave * call s:AlertModification()
+    au WinEnter * set colorcolumn=
+  augroup END
+endif
