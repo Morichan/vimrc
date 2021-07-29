@@ -2,6 +2,8 @@
 " vimでPythonを書くときにやっておきたいこと
 "--------------------------------------------------"
 let g:syntastic_python_checkers = ["flake8"]
+" flake8が未設定の場合はエラーを出さない
+let g:syntastic_quiet_messages = { 'regex': 'flake8: bad interpreter:.*: no such file or directory' }
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
