@@ -71,11 +71,6 @@ hook_add = '''
 
 
 [[plugins]]
-# 単純移動高速化
-repo = 'deris/vim-gothrough-jk'
-
-
-[[plugins]]
 # 単純移動平滑化
 repo = 'yuttie/comfortable-motion.vim'
 hook_add = '''

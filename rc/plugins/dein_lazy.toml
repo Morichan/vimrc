@@ -2,3 +2,15 @@
 # インテリジェントな補完機能
 repo = 'codota/tabnine-vim'
 
+
+[[plugins]]
+# 単純移動高速化
+repo = 'deris/vim-gothrough-jk'
+on_event = ['CursorHold', 'CursorHoldI', 'CursorMoved', 'CursorMovedI']
+hook_post_source = '''
+  nmap <silent><expr> <Plug>(gothrough-jk-j) gothrough_jk#gj()
+  nmap <silent><expr> <Plug>(gothrough-jk-k) gothrough_jk#gk()
+  let g:gothrough_jk_move_interval = 100
+  let g:gothrough_jk_reset_interval = 200
+'''
+
