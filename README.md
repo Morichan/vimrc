@@ -6,6 +6,26 @@
 
 # 導入方法
 
+## Windows
+
+```cmd
+# GitHubからリポジトリをクローンする
+git clone https://github.com/Morichan/vimrc.git
+
+# クローンしたディレクトリに移動する
+cd vimrc
+
+# 値を設定する
+cp settings/init/config.sample.vim settings/init/config.vim
+vim settings/init/config.vim
+
+# 設定を読込む
+./install.pl
+./install_dein.pl
+```
+
+## MacOS, Linux
+
 ```sh
 # GitHubからリポジトリをクローンする
 git clone https://github.com/Morichan/vimrc.git
