@@ -32,6 +32,12 @@ endif
 if has('mac')
   set langmenu=japanese
 endif
+" Windowsにおけるdeinエラーの解消
+if has('win32')
+  " 正確な理由は不明だが、vim8でも下記設定しないと、deinの_initでエラー
+  " https://github.com/Shougo/dein.vim/issues/176
+  set nocompatible
+endif
 " 日本語入力用のkeymapの設定例 (コメントアウト)
 if has('keymap')
   " ローマ字仮名のkeymap
