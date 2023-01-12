@@ -1,7 +1,7 @@
 "--------------------------------------------------"
 " vimで.vimrcを書くときにやっておきたいこと
 "--------------------------------------------------"
-augroup fileTypeIndent
+augroup load_vimscript
   autocmd!
   autocmd BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=999,999
   autocmd BufNewFile,BufRead *vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=999,999
