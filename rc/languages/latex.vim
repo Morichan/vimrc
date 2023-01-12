@@ -4,13 +4,13 @@
 
 " autocmd
 "==============================
-augroup filetype
+augroup set_filetype
   autocmd!
   " tex file (I always use latex)
   autocmd BufRead,BufNewFile *.tex setlocal filetype=tex
 augroup END
 
-augroup fileTypeIndent
+augroup load_latex
   autocmd!
   autocmd BufNewFile,BufRead *.tex setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=999,999
 augroup END
