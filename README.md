@@ -26,6 +26,8 @@ vim settings/init/config.vim
 
 ## MacOS, Linux
 
+インストールは下記の通り。
+
 ```sh
 # GitHubからリポジトリをクローンする
 git clone https://github.com/Morichan/vimrc.git
@@ -34,12 +36,18 @@ git clone https://github.com/Morichan/vimrc.git
 cd vimrc
 
 # 値を設定する
-cp settings/init/config.sample.vim settings/init/config.vim
-vim settings/init/config.vim
+cp rc/init/config.sample.vim rc/init/config.vim
+vim rc/init/config.vim
 
 # 設定を読込む
 ./install.sh
-perl install_dein.pl
+```
+
+アンインストールは下記の通り。
+
+```sh
+# アンインストールする
+./install.sh --uninstall
 ```
 
 
