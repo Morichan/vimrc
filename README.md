@@ -8,20 +8,39 @@
 
 ## Windows
 
-```cmd
+### PowerShell
+
+インストールは以下の通り。
+
+```ps1
 # GitHubからリポジトリをクローンする
 git clone https://github.com/Morichan/vimrc.git
 
 # クローンしたディレクトリに移動する
-cd vimrc
+Set-Location vimrc
 
 # 値を設定する
-cp settings/init/config.sample.vim settings/init/config.vim
-vim settings/init/config.vim
+Set-Location rc\init\config.sample.vim rc\init\config.vim
+vim rc\init\config.vim
 
 # 設定を読込む
-./install.pl
-./install_dein.pl
+.\install.ps1
+```
+
+アンインストールは下記の通り。
+
+```ps1
+# アンインストールする
+.\install.ps1 -Uninstall
+```
+
+### コマンドプロンプト
+
+PowerShellを起動して、PowerShell用のコマンドを実行すればよい。
+
+```cmd
+@REM PowerShellを起動する（以降は上記コマンドを実行する）
+powershell
 ```
 
 ## MacOS, Linux
