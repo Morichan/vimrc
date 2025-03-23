@@ -227,6 +227,11 @@ repo = 'cespare/vim-toml'
 
 
 [[plugins]]
+# PowerShellスクリプトファイル（ps1ファイル）のシンタックスハイライト
+repo = 'pprovost/vim-ps1'
+
+
+[[plugins]]
 # dein.tomlのような、部分的に構文が異なっている箇所のシンタックスハイライト遷移
 repo = 'osyo-manga/vim-precious'
 depends = [ 'context_filetype.vim' ]
