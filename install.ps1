@@ -107,7 +107,7 @@ function Generate-VimrcFile {
   )
   $RepositoryPath = $PSScriptRoot
   $ReadmePath = "$RepositoryPath\README.md"
-  $RcPath = "$RepositoryPath\rc\"
+  $RcPath = "$RepositoryPath\rc"
 
   if (Test-Path $FilePath) {
     Write-Host "File already exists, so don't generate: $FilePath"
@@ -122,7 +122,7 @@ function Generate-VimrcFile {
 set runtimepath+=$RcPath
 let g:VIM_DOTFILES_ROOT_DIR='$RepositoryPath'
 runtime! init.vim
-"@ | Out-File -FilePath $FilePath
+"@ | Out-File -FilePath $FilePath -Encoding utf8
 }
 
 <#
