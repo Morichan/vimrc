@@ -7,7 +7,7 @@ set number
 " set relativenumber
 
 " tabキーの変更
-" set noexpandtab "タブ入力を複数の空白入力に置き換えない
+set expandtab "タブ入力を複数の空白入力に置き換える
 set tabstop=4 "画面上でタブ文字が占める幅
 set shiftwidth=4 "自動インデントでずれる幅
 set softtabstop=4 "連続した空白に対してtabやバックスペースでカーソルが動く幅

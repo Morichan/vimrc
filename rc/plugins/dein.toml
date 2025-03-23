@@ -138,6 +138,11 @@ repo = 'ConradIrwin/vim-bracketed-paste'
 
 
 [[plugins]]
+# helpの日本語化
+repo = 'vim-jp/vimdoc-ja'
+
+
+[[plugins]]
 # solarizedを使う
 repo = 'altercation/vim-colors-solarized'
 
@@ -224,6 +229,11 @@ repo = 'tyru/open-browser.vim'
 [[plugins]]
 # TOMLファイルのシンタックスハイライト
 repo = 'cespare/vim-toml'
+
+
+[[plugins]]
+# PowerShellスクリプトファイル（ps1ファイル）のシンタックスハイライト
+repo = 'pprovost/vim-ps1'
 
 
 [[plugins]]
