@@ -138,6 +138,11 @@ repo = 'ConradIrwin/vim-bracketed-paste'
 
 
 [[plugins]]
+# helpの日本語化
+repo = 'vim-jp/vimdoc-ja'
+
+
+[[plugins]]
 # solarizedを使う
 repo = 'altercation/vim-colors-solarized'
 
