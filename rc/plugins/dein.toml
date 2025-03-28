@@ -214,6 +214,9 @@ repo = 'thinca/vim-quickrun'
 [[plugins]]
 # MarkDownでお世話になる方々01
 repo = 'plasticboy/vim-markdown'
+hook_add = '''
+  let g:vim_markdown_folding_disabled = 1
+'''
 
 
 [[plugins]]
