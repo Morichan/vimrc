@@ -221,11 +221,20 @@ hook_add = '''
 
 [[plugins]]
 # MarkDownでお世話になる方々02
-repo = 'kannokanno/previm'
+repo = 'bullets-vim/bullets.vim'
+hook_add = '''
+  let g:bullets_pad_right = 0
+  let g:bullets_outline_levels = []
+'''
 
 
 [[plugins]]
 # MarkDownでお世話になる方々03
+repo = 'kannokanno/previm'
+
+
+[[plugins]]
+# MarkDownでお世話になる方々04
 repo = 'tyru/open-browser.vim'
 
 
